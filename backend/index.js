@@ -3,7 +3,8 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
-const authRoute = require('./routes/auth')
+const authRoute = require("./routes/auth");
+const userRoute = require("./routes/user");
 
 dotenv.config();
 const app = express();
@@ -16,7 +17,8 @@ app.use(cookieParser()); // tao cookie
 app.use(express.json());
 
 // ROUTES
-app.use('/v1/auth', authRoute);
+app.use("/v1/auth", authRoute);
+app.use("/v1/user", userRoute);
 
 app.listen(8000, () => {
     console.log("server is running");
@@ -25,4 +27,4 @@ app.listen(8000, () => {
 // AUTHENTICATION: so sanh tk,mk ng dung va db
 // AUTHORIZATION: ban la ai, ban co quyen lam gi?
 
-
+// jSON WEB TOKEN
